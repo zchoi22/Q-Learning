@@ -1,6 +1,7 @@
-package com.technobium.rl;
+//package com.technobium.rl;
 import java.io.FileWriter;
 import java.util.Random;
+import java.io.IOException;
 
 public class MazeGenerator {
     //instance data, r to generate random features of map
@@ -41,21 +42,33 @@ public class MazeGenerator {
                 //F designates the endpoint
                 if (j==out[0] && i==out[1]){
                     maze+='F';
-                //checks if obstacle when isObstacle is 0
+                //checks if obstacle when isObstacle is 0, designated by an X
                 //the seed can be adjusted to increase/decrease generation
-                } else if(isObstalce == 0){
-                    maze+='0';
-                //otherwise, it is a free space, designated by X
-                } else{
+                } else if(isObstacle == 0){
                     maze+='X';
+                //otherwise, it is a free space, designated by 0
+                } else{
+                    maze+='0';
                 }
             }
         maze+="\n";
         }
+        System.out.println(maze);
 
         //writes and adds string to a file
-        FileWriter w = new FileWriter("src/Maze.txt");
-        w.write(maze);
-        w.close();
+        try{
+            File file = new File("Maze.txt");
+            FileWriter w = new FileWriter(file);
+            w.write(maze);
+            w.close();
+        } catch (IOException e){
+            System.out.println("NOOO!");
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        MazeGenerator m = new MazeGenerator();
+        m.CreateMaze();
     }
 }
