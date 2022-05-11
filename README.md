@@ -11,3 +11,9 @@ Model-free means that Q Learning doesn't rely on prior knowledge of an environme
 
 What, if anything, is Q Learning often used for? (If you find any cool projects or research relating to Q Learning, feel free to link them to me!)
 Q Learning has been used in self-driving cars, natural language processing, learning applications in many different fields, and more. https://neptune.ai/blog/reinforcement-learning-applications
+
+
+Q Learning class created by Technobium: http://technobium.com/reinforcement-learning-q-learning-java/
+To RUN:
+Run MazeGenerator class, and new maze will be generated in resources folder
+Run Q Learning
